@@ -17,6 +17,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "recharts": "^2.4.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -44,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "@types/recharts": "^1.8.24",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
