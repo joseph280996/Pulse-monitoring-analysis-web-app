@@ -1,9 +1,9 @@
-import DiagnosisComponent from './DiagnosisComponent';
+import DiagnosisView from "./Diagnosis.view";
 
 const DiagnosisPage = () => {
     return (
-        <DiagnosisComponent />
-    )
-}
+        <DiagnosisView />
+    );
+};
 
 export default DiagnosisPage

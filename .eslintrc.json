@@ -24,9 +24,12 @@
         "count": 1
       }
     ],
+    "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
+    "semi": "off",
     "@typescript-eslint/semi": ["error", "always"],
     "@typescript-eslint/indent": "off",
+    "lines-between-class-members": "off",
     "@typescript-eslint/lines-between-class-members": [
       "error",
       "always",
@@ -34,13 +37,10 @@
         "exceptAfterSingleLine": true
       }
     ],
-    "lines-between-class-members": "off",
     "implicit-arrow-linebreak": "off",
     "max-len": "off",
-    "no-unused-vars": "off",
     "no-underscore-dangle": "off",
     "object-curly-newline": "off",
-    "semi": "off",
     "linebreak-style": ["error", "unix"],
     "sort-imports": [
       "error",

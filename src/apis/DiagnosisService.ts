@@ -18,8 +18,12 @@ class DiagnosisService implements IDiagnosisService {
         this.httpClient = new HttpClient("/diagnosis");
     }
 
+    async getAllDiagnosis(): Promise<Diagnosis[]>{
+        const response = await 
+    }
+
 	async getDiagnosisById(id: number): Promise<Diagnosis | undefined> {
-        const response = await this.httpClient.get("", id);
+        const response = await this.httpClient.get(`/${id}`);
         if (!response || !response?.data) {
             return;
         }
