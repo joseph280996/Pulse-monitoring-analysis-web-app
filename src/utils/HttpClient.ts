@@ -1,4 +1,3 @@
-import AppConstants from '../constants/AppConstants';
 import { IHttpClient } from './interfaces/IHttpClient';
 import { RequestResultType } from './types/RequestResultType';
 
@@ -42,8 +41,8 @@ class HttpClient implements IHttpClient {
     };
   }
 
-  constructor(endpoint: string, options?: RequestInit) {
-    this.url = `${AppConstants.apiBaseUrl}/${endpoint}`;
+  constructor(apiBaseUrl: string, endpoint: string, options?: RequestInit) {
+    this.url = `${apiBaseUrl}/${endpoint}`;
     if (options) this.requestOptions = options;
   }
 
