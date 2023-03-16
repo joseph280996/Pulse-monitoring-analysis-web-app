@@ -8,12 +8,15 @@ export interface GetAxisDomainRequestType {
   offset: number;
 }
 
-export interface ZoomableChartPropsType extends ComponentPropsWithDataType {}
+export interface ZoomableChartPropsType extends ComponentPropsWithDataType {
+  minZoomValue: (dataList: any[]) => number | number;
+  maxZoomValue: (dataList: any[]) => number | number;
+}
 export interface ZoomableChartViewPropsType extends ComponentPropsWithDataType {
   leftBound: string;
   rightBound: string;
   bottomBound: string;
   topBound: string;
-  onZoom: (p: any) => any;
+  onZoom: (event: Event, newValue: number | number[]) => void;
   zoomValue: number;
 }

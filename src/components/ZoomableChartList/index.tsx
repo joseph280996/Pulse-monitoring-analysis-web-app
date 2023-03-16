@@ -3,7 +3,7 @@ import {
   type GetAxisDomainRequestType,
   type ZoomableChartPropsType,
 } from "./ZoomableChartList.types";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 const getAxisYDomain = ({
   data,
@@ -25,44 +25,50 @@ const getAxisYDomain = ({
 
 const ZoomableChartList = ({
   dataList: initialData,
+  minZoomValue,
+  maxZoomValue,
 }: ZoomableChartPropsType) => {
   const [left, setLeft] = useState<string>("dataMin");
   const [right, setRight] = useState<string>("dataMax");
   const [top, setTop] = useState<string>("dataMax+1");
   const [bottom, setBottom] = useState<string>("dataMax-1");
-  const [refAreaLeft, setRefAreaLeft] = useState<string>("");
-  const [refAreaRight, setRefAreaRight] = useState<string>("");
   const [data, setData] = useState<any[]>(initialData);
   const [zoomValue, setZoomValue] = useState<number>(0);
 
-  const onZoom = useCallback(() => {
-    let [leftRef, rightRef] = [refAreaLeft, refAreaRight];
-    if (leftRef === rightRef || rightRef === "") {
-      setLeft("");
-      setRight("");
-      return;
+  const [minZoom, maxZoom] = useMemo(() => {
+    let minZoomVal: number, maxZoomVal: number;
+
+    if (typeof minZoomValue === "function") {
+      minZoomVal = minZoomValue(initialData);
+    } else {
+      minZoomVal = minZoomValue;
     }
 
-    if (leftRef > rightRef) {
-      [leftRef, rightRef] = [refAreaRight, refAreaLeft];
+    if (typeof maxZoomValue === "function") {
+      maxZoomVal = maxZoomValue(initialData);
+    } else {
+      maxZoomVal = maxZoomValue;
     }
 
-    const [newBottom, newTop] = getAxisYDomain({
-      data,
-      from: Number(refAreaLeft),
-      to: Number(refAreaRight),
-      ref: "data",
-      offset: 1,
-    });
+    return [minZoomVal, maxZoomVal];
+  }, [minZoomValue, initialData]);
 
-    setRefAreaLeft("");
-    setRefAreaRight("");
-    setData((data) => data.slice());
-    setLeft(refAreaLeft);
-    setRight(refAreaRight);
-    setBottom(newBottom.toString());
-    setTop(newTop.toString());
-  }, [data, refAreaRight, refAreaLeft]);
+  const onZoom = useCallback(
+    (event: Event, newValue: number | number[]) => {
+      const [newBottom, newTop] = getAxisYDomain({
+        data,
+        from: Number(refAreaLeft),
+        to: Number(refAreaRight),
+        ref: "data",
+        offset: 1,
+      });
+
+      setData((data) => data.slice());
+      setBottom(newBottom.toString());
+      setTop(newTop.toString());
+    },
+    [data]
+  );
 
   return (
     <ZoomableChartListView
