@@ -54,15 +54,20 @@ const ZoomableChartList = ({
   }, [minZoomValue, initialData]);
 
   const onZoom = useCallback(
-    (event: Event, newValue: number | number[]) => {
+    (_: Event, newValue: number | number[]) => {
+      const newZoomOffset = newValue as number; 
+      const newLeft = minZoom - newZoomOffset;
+      const newRight = maxZoom - newZoomOffset;
       const [newBottom, newTop] = getAxisYDomain({
         data,
-        from: Number(refAreaLeft),
-        to: Number(refAreaRight),
+        from: newLeft,
+        to: newRight,
         ref: "data",
         offset: 1,
       });
 
+      setLeft(newLeft.toString());
+      setRight(newRight.toString());
       setData((data) => data.slice());
       setBottom(newBottom.toString());
       setTop(newTop.toString());
