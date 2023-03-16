@@ -1,17 +1,34 @@
 const express = require("express");
 const http = require("http");
-const mockData = require('./data')
+const mockPiezoData = require('../mockData/piezoData.json');
+const mockEcgData = require('../mockData/ecgData.json');
 
-const port = 8000;
+// PiezoElectricSensor service
+const piezoElectricSensorPort = 8000;
 
-const app = express();
+const mockPiezoElectricSensorApp = express();
 
-app.get("/diagnosis/:id", (req, res) => {
-    res.send(mockData);
+mockPiezoElectricSensorApp.get("/diagnosis/:id/records", (req, res) => {
+    res.send(mockPiezoData);
 });
 
-const server =  http.createServer(app);
+const mockPiezoElectricSensorServer =  http.createServer(mockPiezoElectricSensorApp);
 
-server.listen(port, () => {
-      console.log(`Server started at localhost port ${port}`)
+mockPiezoElectricSensorServer.listen(piezoElectricSensorPort, () => {
+      console.log(`Piezeo sensor server started at localhost port ${piezoElectricSensorPort}`);
+});
+
+// ECG sensor service
+const ecgSensorPort = 8080;
+
+const mockEcgSensorApp = express();
+
+mockEcgSensorApp.get("/record", (req, res) => {
+    res.send(mockEcgData);
+});
+
+const mockEcgSensorServer = http.createServer(mockEcgSensorApp);
+
+mockEcgSensorServer.listen(ecgSensorPort, () => {
+    console.log(`Ecg sensor server started at localhost port ${ecgSensorPort}`);
 });
