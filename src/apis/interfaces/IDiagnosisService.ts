@@ -1,6 +1,7 @@
-import Diagnosis from "../../dataObjects/Diagnosis";
+import type Diagnosis from "../../dataObjects/Diagnosis";
+import Record from "../../dataObjects/Record";
 
 export interface IDiagnosisService {
-    getDiagnosisById(id : number): Promise<Diagnosis | undefined>
-
+  getRecordsByDiagnosisId: (id: number) => Promise<{ records?: Record[] }>;
+  getAllDiagnoses: () => Promise<{ diagnoses?: Diagnosis[] }>;
 }

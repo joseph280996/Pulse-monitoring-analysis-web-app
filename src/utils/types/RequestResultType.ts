@@ -1,4 +1,4 @@
-export type RequestResultType = {
-  data?: any;
+export interface RequestResultType<T>{
+  data?: T;
   error?: Error;
 };

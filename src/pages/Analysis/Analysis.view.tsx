@@ -1,14 +1,10 @@
 import ZoomableChartList from "../../components/ZoomableChartList";
 import { type AnalysisViewPropType } from "./Analysis.types";
 
-const AnalysisView = ({ dataList }: AnalysisViewPropType) => {
+const AnalysisView = ({ dataList }: AnalysisViewPropType): JSX.Element => {
   return (
     <div>
-      <ZoomableChartList
-        dataList={dataList}
-        minZoomValue={() => 0}
-        maxZoomValue={() => 0}
-      />
+      <ZoomableChartList dataList={dataList} />
     </div>
   );
 };

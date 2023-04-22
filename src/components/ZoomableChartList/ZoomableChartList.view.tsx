@@ -1,46 +1,72 @@
-import Stack from "@mui/material/Stack";
-import Slider from "@mui/material/Slider";
-import ZoomIn from "@mui/icons-material/ZoomIn";
-import ZoomOut from "@mui/icons-material/ZoomOut";
-import { CartesianGrid, LineChart, XAxis, YAxis } from "recharts";
+import { ZoomIn, ZoomOut } from "@mui/icons-material";
 import Grid from "@mui/material/Grid";
-import { ZoomableChartViewPropsType } from "./ZoomableChartList.types";
+import { type ZoomableChartViewPropsType } from "./ZoomableChartList.types";
+import { Slider, Stack } from "@mui/material";
+import {
+  type DomainTuple,
+  VictoryChart,
+  VictoryLine,
+  VictoryZoomContainer,
+} from "victory";
 
 function ZoomableChartListView({
   dataList,
-  leftBound,
-  rightBound,
-  topBound,
-  bottomBound,
   onZoom,
+  zoomDomain,
+  zoomMin,
+  zoomMax,
   zoomValue,
-}: ZoomableChartViewPropsType) {
+  zoomContainerProp,
+}: ZoomableChartViewPropsType): JSX.Element {
+  console.log(zoomDomain);
   return (
     <>
-      {dataList.map((data: any[]) => {
+      {dataList.map((data: any[], idx) => {
+        const firstTimeStamp = data[0].timeStamp;
+        const dataToPlot = data.map(
+          ({ timeStamp, data }: { timeStamp: number; data: number }) => {
+            return { timeStamp: timeStamp - firstTimeStamp, data };
+          }
+        );
         return (
-          <Grid item xs={12}>
-            <LineChart data={data}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis
-                dataKey="data"
-                domain={[leftBound, rightBound]}
-                type="number"
-                allowDataOverflow
+          <Grid item xs={12} key={idx}>
+            <VictoryChart
+              scale={{ x: "linear" }}
+              width={1800}
+              height={500}
+              containerComponent={
+                <VictoryZoomContainer {...zoomContainerProp} />
+              }
+            >
+              <VictoryLine
+                x="timeStamp"
+                y="data"
+                style={{ data: { stroke: "tomato" } }}
+                data={dataToPlot}
               />
-              <YAxis
-                dataKey="timestamp"
-                domain={[bottomBound, topBound]}
-                allowDataOverflow
-              />
-            </LineChart>
+            </VictoryChart>
           </Grid>
         );
       })}
       <Grid item xs={12}>
         <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
           <ZoomOut />
-          <Slider aria-label="Volume" value={zoomValue} onChange={onZoom} />
+          <Slider
+            value={zoomValue}
+            min={zoomMin}
+            max={zoomMax}
+            onChange={(_, value) => {
+              const currZoomDomain = zoomDomain.x ?? [zoomMin, zoomMax];
+              const newDomain = {
+                ...zoomDomain,
+                x: [
+                  (currZoomDomain[0] as number) + (value as number),
+                  (currZoomDomain[1] as number) - (value as number),
+                ] as DomainTuple,
+              };
+              onZoom(newDomain, zoomContainerProp);
+            }}
+          />
           <ZoomIn />
         </Stack>
       </Grid>

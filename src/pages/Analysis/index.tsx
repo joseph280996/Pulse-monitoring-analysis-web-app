@@ -1,21 +1,13 @@
+import type { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
+import { useLoaderData } from "react-router-dom";
+import type Record from "../../dataObjects/Record";
 import AnalysisView from "./Analysis.view";
 
-const getMinXValueFromDataList = (dataList: any[]) => {
-    let minValue = 0;
-    dataList.forEach(data => {
-        const firstElementTimeStamp = data[0].timeStamp;
-        if(firstElementTimeStamp < minValue){
-            minValue = 0;
-        }
-    })
-}
+const Analysis = (): ReactJSXElement => {
+  const { records: piezoSensorData } = useLoaderData() as { records: Record[] };
+  const piezoSensorDataToDisplay = piezoSensorData.flat(Infinity);
 
-const Analysis = () => {
-    const data: any[] = [];
-
-    return (
-        <AnalysisView dataList ={data}/>
-    );
+  return <AnalysisView dataList={[piezoSensorDataToDisplay]} />;
 };
 
 export default Analysis;
