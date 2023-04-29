@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { ReceivedDatum, WSMessageType } from '../types';
+import { ReceivedDatum, WSMessageType } from '../utils/infrastructure/common/types';
 
 export type OnRecordedDataWSMessageConfigType = {
   setData: Dispatch<SetStateAction<any>>;
