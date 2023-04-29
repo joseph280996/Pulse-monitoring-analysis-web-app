@@ -1,7 +1,7 @@
-import { RequestResultType } from "../types/RequestResultType";
+import { type RequestResultType } from "../types/HttpClientTypes";
 
-export interface IHttpClient {
-  get<T>(route?: string, params?: any): Promise<RequestResultType<T>>;
-  post<T>(route?: string, params?: any): Promise<RequestResultType<T>>;
+export interface IHttpClient<T> {
+  get: (route: string, params?: any) => Promise<RequestResultType<T[]>>;
+  post: (route: string, params?: any) => Promise<RequestResultType<T>>;
+  constructingQueryParam: (queryKey: any) => string;
 }
-

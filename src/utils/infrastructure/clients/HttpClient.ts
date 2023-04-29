@@ -1,12 +1,5 @@
-interface RequestResultType<T> {
-  data?: T;
-  error?: Error;
-}
-
-interface IHttpClient<T> {
-  get: (route: string, params?: any) => Promise<RequestResultType<T[]>>;
-  post: (route: string, params?: any) => Promise<RequestResultType<T>>;
-}
+import { type IHttpClient } from "./interfaces/IHttpClient";
+import { type RequestResultType } from "./types/HttpClientTypes";
 
 class HttpClient<T> implements IHttpClient<T> {
   private readonly DEFAULT_OPTIONS: RequestInit = {
@@ -25,7 +18,7 @@ class HttpClient<T> implements IHttpClient<T> {
     this.url = url;
     this.requestOptions = {
       ...this.DEFAULT_OPTIONS,
-      ...(requestConfigEx || {}),
+      ...(requestConfigEx ?? {}),
     };
     this.abortController = new AbortController();
   }
@@ -69,6 +62,26 @@ class HttpClient<T> implements IHttpClient<T> {
     } catch (error) {
       return { error: error as Error };
     }
+  }
+
+  constructingQueryParam(queryKey: any): string {
+    if (queryKey == null) {
+      return "";
+    }
+
+    return Object.entries(queryKey).reduce(
+      (queryParam: string, [key, value]: [string, any]) => {
+        return `${queryParam}&${key}=${this.getQueryKeyValue(value)}`;
+      },
+      ""
+    );
+  }
+
+  private getQueryKeyValue(value: any): string {
+    if (value instanceof Array) {
+      return value.toString();
+    }
+    return value;
   }
 
   private validatingResponse(response: Response): void {
