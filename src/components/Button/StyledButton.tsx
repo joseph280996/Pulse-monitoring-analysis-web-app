@@ -1,17 +1,23 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classnames from 'classnames';
-import { FC, CSSProperties, MouseEventHandler, ReactElement } from 'react';
-import { Button, Spinner } from 'react-bootstrap';
-import './StyledButton.scss';
+import { type IconProp } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import classnames from "classnames";
+import {
+  type CSSProperties,
+  type FC,
+  type MouseEventHandler,
+  type PropsWithChildren,
+  type ReactElement,
+} from "react";
+import { Button, Spinner } from "react-bootstrap";
+import "./StyledButton.scss";
 
 const ICON_POSSIBLE_POSITION = {
-  START: 'start',
-  END: 'end',
+  START: "start",
+  END: "end",
 };
 
-export interface IButtonProps {
-  type?: 'button' | 'reset' | 'submit';
+export interface IButtonProps extends PropsWithChildren {
+  type?: "button" | "reset" | "submit";
   text?: string;
   disabled?: boolean;
   className?: string;
@@ -50,9 +56,9 @@ const StyledButton: FC<IButtonWithIconProps> = ({
   return (
     <div
       className={classnames(
-        'Button-container',
+        "Button-container",
         {
-          'Button-iconOnly': !children && !text,
+          "Button-iconOnly": !children && !text,
         },
         wrapperClassName
       )}
@@ -63,7 +69,7 @@ const StyledButton: FC<IButtonWithIconProps> = ({
         disabled={disabled}
         className={classnames(
           {
-            'Button-primary': primary,
+            "Button-primary": primary,
           },
           className
         )}
@@ -96,7 +102,7 @@ const StyledButton: FC<IButtonWithIconProps> = ({
 };
 
 StyledButton.defaultProps = {
-  type: 'button',
+  type: "button",
   text: undefined,
   disabled: false,
   className: undefined,

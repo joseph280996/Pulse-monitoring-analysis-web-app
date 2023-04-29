@@ -1,15 +1,15 @@
-import moment from 'moment';
-import { useFormik } from 'formik';
-import { object } from 'yup';
-import piezoelectricService from 'renderer/client/utils/services/piezoelectricService';
-import ExportDataService from 'renderer/client/utils/services/exportDataService';
-import ExportDataFormComponent from './ExportDataFormComponent';
+import moment from "moment";
+import { useFormik } from "formik";
+import { object } from "yup";
+import piezoelectricService from "renderer/client/utils/services/piezoelectricService";
+import ExportDataService from "renderer/client/utils/services/exportDataService";
+import ExportDataFormComponent from "./ExportDataFormComponent";
 import {
-  DatePickerOnChangeType,
-  DatePickerSelectedRangeType,
-  ExportDataFormValuesType,
-} from './ExportDataFormTypes';
-import fields from './exportDataFieldsValidation';
+  type DatePickerOnChangeType,
+  type DatePickerSelectedRangeType,
+  type ExportDataFormValuesType,
+} from "./ExportDataFormTypes";
+import fields from "./ExportDataFieldsValidation";
 
 const ExportDataForm = () => {
   const { setFieldValue, values, handleSubmit, status } =
@@ -21,7 +21,7 @@ const ExportDataForm = () => {
       onSubmit: async (formValues, { setStatus: setStatusOnSubmit }) => {
         const statusCode = await ExportDataService.postAsync(formValues);
         if (statusCode === 200) {
-          setStatusOnSubmit('Exported');
+          setStatusOnSubmit("Exported");
         }
       },
       validationSchema: object().shape(
@@ -34,10 +34,10 @@ const ExportDataForm = () => {
     const [selectedStartDate, selectedEndDate] =
       dateRange as DatePickerSelectedRangeType;
     if (selectedStartDate) {
-      setFieldValue('startDate', moment(selectedStartDate).utc());
+      setFieldValue("startDate", moment(selectedStartDate).utc());
     }
     if (selectedEndDate) {
-      setFieldValue('endDate', moment(selectedEndDate).utc());
+      setFieldValue("endDate", moment(selectedEndDate).utc());
     }
   };
   return (

@@ -1,9 +1,9 @@
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { ReactElement } from 'react';
-import './ConfirmExportButton.scss';
-import StyledButton, { IButtonProps } from '../StyledButton';
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { type ReactElement } from "react";
+import "./ConfirmExportButton.scss";
+import StyledButton, { type IButtonProps } from "../StyledButton";
 
-const ContinueButton = ({ type = 'button' }: IButtonProps): ReactElement => {
+const ContinueButton = ({ type = "button" }: IButtonProps): ReactElement => {
   return (
     <StyledButton
       buttonTextClassName="ContinueButton-text"
