@@ -1,12 +1,13 @@
-import { FormikProps } from 'formik';
-import { MouseEventHandler } from 'react';
-import { ILineChartProps } from '../../components/Chart/LineChart';
+import { type FormikProps } from "formik";
+import { type ILineChartProps } from "../../Chart/LineChart";
+import { type MouseEventHandler } from "react";
 
-export type PostDiagnosisFormProps = {
+export interface PostDiagnosisFormProps {
   recordID: number;
   pulseTypeID: number;
   patientName: string;
-};
+}
+
 export interface IPostDiagnosisProps
   extends ILineChartProps,
     FormikProps<PostDiagnosisFormProps> {

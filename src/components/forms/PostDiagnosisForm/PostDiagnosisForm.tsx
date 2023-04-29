@@ -1,14 +1,11 @@
-import { useFormik } from 'formik';
-import { ReactElement } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { object } from 'yup';
-import piezoelectricService from 'renderer/client/utils/services/piezoelectricService';
+import { useNavigate } from "react-router-dom";
 import {
-  IPostDiagnosisFormContainerProp,
-  PostDiagnosisFormProps,
-} from './PostDiagnosisFormTypes';
-import fields from './postDiagnosisFieldsValidation';
-import PostDiagnosisFormComponent from './PostDiagnosisFormComponent';
+  type IPostDiagnosisFormContainerProp,
+  type PostDiagnosisFormProps,
+} from "./PostDiagnosisFormTypes";
+import { useFormik } from "formik";
+import { type ReactElement } from "react";
+import DiagnosisService from "../../../utils/infrastructure/services/diagnosisService";
 
 const PostDiagnosisFormContainer = ({
   initialValues,
@@ -20,8 +17,8 @@ const PostDiagnosisFormContainer = ({
   const formik = useFormik({
     initialValues,
     onSubmit: async (values: PostDiagnosisFormProps) => {
-      await piezoelectricService.postAsync(values);
-      navigate('/finish');
+      await DiagnosisService.instance.postAsync(values);
+      navigate("/finish");
     },
     validationSchema: object().shape(
       fields.reduce((fieldsValidation, { name, validate }) => {
