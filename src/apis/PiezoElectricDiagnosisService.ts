@@ -6,7 +6,7 @@ import type { IDiagnosisService } from "./interfaces/IDiagnosisService";
 
 class PiezoElectricSensorDiagnosisService implements IDiagnosisService {
   private static _instance?: PiezoElectricSensorDiagnosisService;
-  private readonly httpClient!: HttpClient;
+  private readonly httpClient!: HttpClient<Diagnosis>;
 
   static get instance(): PiezoElectricSensorDiagnosisService {
     if (PiezoElectricSensorDiagnosisService._instance == null) {
@@ -22,12 +22,12 @@ class PiezoElectricSensorDiagnosisService implements IDiagnosisService {
     this.httpClient = new HttpClient(`${AppConstants.apiBaseUrl}/diagnosis`);
   }
 
-  async getAllDiagnoses(): Promise<{ diagnoses?: Diagnosis[] }> {
+  async getAllDiagnoses(): Promise<{ : Diagnosis[] }> {
     console.log(this);
     console.log(this.httpClient);
-    const response = await this.httpClient.get<Diagnosis[]>();
+    const response = await this.httpClient.get();
     if (response?.data == null) {
-      return {};
+            throw new Error("Error sending request to get all diagnoses")
     }
 
     if (response.error != null) {

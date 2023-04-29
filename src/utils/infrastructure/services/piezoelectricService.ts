@@ -1,15 +1,15 @@
 import { pick } from 'lodash';
-import { PostDiagnosisFormProps } from 'renderer/client/components/form/PostDiagnosisForm';
-import { RecordType } from '../../types';
-import HttpClient from '../controller/HttpClient';
-import { IGetService, IPostService } from './IService';
+import { PostDiagnosisFormProps } from '../../../components/forms/PostDiagnosisForm/PostDiagnosisFormTypes';
+import HttpClient from '../clients/HttpClient';
+import { RecordType } from '../common/types';
+import { IGetService, IPostService } from './interfaces/IService';
 
 class PiezoelectricSensorRecordService
   implements
     IPostService<PostDiagnosisFormProps, number>,
     IGetService<number, RecordType>
 {
-  private service: HttpClient;
+  private service: HttpClient<RecordType>;
 
   constructor() {
     this.service = new HttpClient(
@@ -23,9 +23,14 @@ class PiezoelectricSensorRecordService
   async getAsync(recordID: number): Promise<RecordType> {
     const { data, error } = await this.service.get(`/record/${recordID}`);
     if (error) {
-      throw new Error(`Cannot get Record for recordID [${recordID}]`);
+      throw new Error(`Error getting Record for recordID [${recordID}]`);
     }
-    return data;
+
+    if (!data || data.length == 0){
+            throw new Error("Cannot Get Record from piezo sensor service.");
+        }
+
+    return data[0];
   }
 
   async postAsync(values: PostDiagnosisFormProps): Promise<number> {
@@ -33,6 +38,7 @@ class PiezoelectricSensorRecordService
       ...pick(values, ['pulseTypeID', 'handPositionID', 'patientName']),
       data: JSON.stringify(values.data),
     });
+
     return response.data.status;
   }
 }

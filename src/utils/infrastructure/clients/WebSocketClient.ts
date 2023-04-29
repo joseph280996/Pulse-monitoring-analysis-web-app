@@ -1,6 +1,6 @@
 import { WSMessageType } from '../../types';
 import WebSocketMessageHandlerFactory from '../factory/WebSocketMessageHandlerFactory';
-import IWebsocketClient from '../interfaces/IWebsocketClient';
+import IWebsocketClient from './interfaces/IWebsocketClient';
 import { OnRecordedDataWSMessageConfigType } from '../onRecordedDataWSMessage';
 
 export type WebSocketClientConstructorParamsType = {
