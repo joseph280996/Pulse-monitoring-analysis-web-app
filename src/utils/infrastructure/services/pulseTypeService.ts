@@ -28,6 +28,10 @@ class PulseTypeService implements IGetService<never, PulseType[]> {
 
     return data;
   }
+
+  async getWithFilterAsync(): Promise<PulseType[]> {
+    throw new Error("Not yet implemented");
+  }
 }
 
 export default new PulseTypeService();

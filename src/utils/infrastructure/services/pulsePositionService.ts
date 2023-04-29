@@ -30,6 +30,10 @@ class PulsePositionService implements IGetService<never, PulsePositionType[]> {
     }
     return data;
   }
+
+  async getWithFilterAsync(): Promise<PulsePositionType[]> {
+    throw new Error("Not yet implemented");
+  }
 }
 
 export default new PulsePositionService();
