@@ -6,6 +6,9 @@ import {
 import { useFormik } from "formik";
 import { type ReactElement } from "react";
 import DiagnosisService from "../../../utils/infrastructure/services/diagnosisService";
+import fields from "./PostDiagnosisValidation";
+import PostDiagnosisFormComponent from "./PostDiagnosisFormComponent";
+import { object } from "yup";
 
 const PostDiagnosisFormContainer = ({
   initialValues,
