@@ -1,10 +1,10 @@
-import classNames from 'classnames';
-import { ReactElement } from 'react';
-import './TextField.scss';
-import { ITextFieldProps } from './TextFieldTypes';
+import classNames from "classnames";
+import { ReactElement } from "react";
+import "./TextField.scss";
+import { ITextFieldProps } from "./TextFieldTypes";
 
 function TextField({
-  type = 'text',
+  type = "text",
   name,
   label,
   onClick,
@@ -18,15 +18,15 @@ function TextField({
   className,
 }: ITextFieldProps): ReactElement {
   return (
-    <div className={classNames('TextField-container', className)}>
+    <div className={classNames("TextField-container", className)}>
       {label && (
         <label className="TextField-label" htmlFor={name}>
           {`${label}:`}
         </label>
       )}
       <input
-        className={classNames('TextField-input', {
-          'TextField-input--error': !!error,
+        className={classNames("TextField-input", {
+          "TextField-input--error": !!error,
         })}
         required={required}
         name={name}
@@ -47,7 +47,7 @@ TextField.defaultProps = {
   onChange: null,
   onBlur: null,
   label: null,
-  placeholder: '',
+  placeholder: "",
 };
 
 export default TextField;

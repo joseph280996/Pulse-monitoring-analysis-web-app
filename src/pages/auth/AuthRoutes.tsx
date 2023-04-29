@@ -1,16 +1,16 @@
-import { useEffect } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import useAuthState from 'renderer/client/utils/hooks/useAuthState';
-import SignInPage from './signin';
-import ChangeUsername from './ChangeUsername';
-import ForgotPass from './ForgotPass';
+import { useEffect } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import useAuthState from "renderer/client/utils/hooks/useAuthState";
+import SignInPage from "./signin";
+import ChangeUsername from "./ChangeUsername";
+import ForgotPass from "./ForgotPass";
 
 const AuthRoutes = () => {
   const {
     auth: { isSignedIn },
     setAuth,
   } = useAuthState();
-  const isSignedInStored = localStorage.getItem('isSignedIn');
+  const isSignedInStored = localStorage.getItem("isSignedIn");
 
   useEffect(() => {
     if (!!isSignedInStored !== isSignedIn && setAuth) {

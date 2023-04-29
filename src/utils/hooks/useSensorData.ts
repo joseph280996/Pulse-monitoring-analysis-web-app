@@ -1,31 +1,13 @@
-import { SetStateAction, useState } from 'react';
-import { ReceivedDatum, WSMessageType } from '../../types';
-import WebSocketController from '../controller/WebSocketController';
-import useWebSocket from './useWebSocket';
-
-type UseWebsocketParamsType = (
-  existingData: WSMessageType
-) => SetStateAction<ReceivedDatum[]>;
-
-type UseSensorDataType = (
-  setDataFn: UseWebsocketParamsType
-) => UseSensorDataReturnType;
-
-type UseSensorDataReturnType = {
-  data: ReceivedDatum[];
-  error?: ErrorEvent;
-  readyState?: number;
-  recordID?: number;
-  wsController: WebSocketController | null;
-};
+import { useState } from "react";
+import { type ReceivedDatum } from "../infrastructure/common/types";
+import { type UseSensorDataType } from "./useSensorData.types";
+import useWebSocket from "./useWebSocket";
 
 const useSensorData: UseSensorDataType = (setDataFn) => {
   const [data, setData] = useState<ReceivedDatum[]>([]);
   const [recordID, setRecordID] = useState<number>();
   const { error, readyState, wsController } = useWebSocket({
-    setData,
-    setDataFn,
-    setRecordID,
+    callback,
   });
 
   return {

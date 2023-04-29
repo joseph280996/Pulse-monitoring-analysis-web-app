@@ -1,5 +1,5 @@
-import { ReactElement, OptionHTMLAttributes } from 'react';
-import './Option.scss';
+import { ReactElement, OptionHTMLAttributes } from "react";
+import "./Option.scss";
 
 type OptionPropsType = {
   className?: string;

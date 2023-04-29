@@ -1,16 +1,16 @@
-import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
-import classNames from 'classnames';
-import { ReactElement, useState, useRef } from 'react';
-import Keyboard from 'react-simple-keyboard';
-import StyledButton from '../../Button';
-import Overlay from '../../Overlay';
-import VirtualKeyboard from '../../VirtualKeyboard';
-import { VirtualKeyboardChangeEventHandlerType } from '../../VirtualKeyboard/VirtualKeyboard';
-import TextField from '../TextField';
-import { ITextFieldProps } from '../TextFieldTypes';
-import './TextFieldWithKeyboard.scss';
+import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import classNames from "classnames";
+import { ReactElement, useState, useRef } from "react";
+import Keyboard from "react-simple-keyboard";
+import StyledButton from "../../Button";
+import Overlay from "../../Overlay";
+import VirtualKeyboard from "../../VirtualKeyboard";
+import { VirtualKeyboardChangeEventHandlerType } from "../../VirtualKeyboard/VirtualKeyboard";
+import TextField from "../TextField";
+import { ITextFieldProps } from "../TextFieldTypes";
+import "./TextFieldWithKeyboard.scss";
 
-interface ITextFieldWithKeyboard extends Omit<ITextFieldProps, 'onChange'> {
+interface ITextFieldWithKeyboard extends Omit<ITextFieldProps, "onChange"> {
   onChange: VirtualKeyboardChangeEventHandlerType;
 }
 
@@ -28,7 +28,7 @@ const TextFieldWithKeyboard = ({
           <div className="TextFieldWithKeyboard-overlayInner">
             <div className="TextFieldWithKeyboard-fieldAndCloseButton">
               <TextField
-                className={classNames('TextFieldWithKeyboard-field', className)}
+                className={classNames("TextFieldWithKeyboard-field", className)}
                 onChange={(event) => {
                   event.stopPropagation();
                   onChange((event.target as HTMLInputElement).value);

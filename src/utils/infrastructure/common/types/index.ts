@@ -1,41 +1,39 @@
-import { FormEvent } from 'react';
+import { type FormEvent } from "react";
 
 export type FormikHandleSubmitType = (
   e?: FormEvent<HTMLFormElement> | undefined
 ) => void;
 
-export interface ObjectWithStringIndexing {
-  [key: string]: any;
-}
+export type ObjectWithStringIndexing = Record<string, any>;
 
-export type ReceivedDatum = {
+export interface ReceivedDatum {
   timeStamp: number;
   data: number;
-};
+}
 
 export interface IWsMessageType {
   type: string;
 }
 
-export type PulseType = {
+export interface PulseType {
   id: number;
   name: string;
-};
+}
 
-export type PulsePositionType = {
+export interface PulsePositionType {
   id: number;
   name: string;
-};
+}
 
-export type RecordType = {
+export interface RecordType {
   id: number;
   pulseTypeID?: number;
   handPositionID?: number;
   data: ReceivedDatum[];
   patientID?: number;
-};
+}
 
-export type WSMessageType = {
+export interface WSMessageType {
   type: string;
   recordedData: ReceivedDatum[];
-};
+}

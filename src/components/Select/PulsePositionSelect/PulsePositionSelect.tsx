@@ -1,9 +1,9 @@
-import classNames from 'classnames';
-import { ReactElement, ChangeEventHandler } from 'react';
-import usePulsePosition from '../../../utils/hooks/usePulsePositions';
-import Option from '../../Option';
-import Select from '../Select';
-import './PulsePositionSelect.scss';
+import classNames from "classnames";
+import { ReactElement, ChangeEventHandler } from "react";
+import usePulsePosition from "../../../utils/hooks/usePulsePositions";
+import Option from "../../Option";
+import Select from "../Select";
+import "./PulsePositionSelect.scss";
 
 type PulsePositionProps = {
   className?: string;
@@ -23,7 +23,7 @@ const PulsePositionSelect = ({
 }: PulsePositionProps): ReactElement => {
   const { pulsePositions } = usePulsePosition();
   return (
-    <div className={classNames('PulsePositionSelect', className)}>
+    <div className={classNames("PulsePositionSelect", className)}>
       {label && (
         <label
           className="PulsePositionSelect-label"

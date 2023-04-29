@@ -1,13 +1,13 @@
-import { useFormik } from 'formik';
-import moment from 'moment';
-import { ReactElement } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ReceivedDatum } from 'renderer/client/types';
-import DiagnosisFormComponent from './DiagnosisFormComponent';
-import FormikValuesType, { IDiagnosisFormProps } from './DiagnosisFormTypes';
+import { useFormik } from "formik";
+import moment from "moment";
+import { ReactElement } from "react";
+import { useNavigate } from "react-router-dom";
+import { ReceivedDatum } from "renderer/client/types";
+import DiagnosisFormComponent from "./DiagnosisFormComponent";
+import FormikValuesType, { IDiagnosisFormProps } from "./DiagnosisFormTypes";
 
 export interface IDiagnosisFormContainerProps
-  extends Omit<IDiagnosisFormProps, 'data'> {
+  extends Omit<IDiagnosisFormProps, "data"> {
   data: ReceivedDatum[];
 }
 
@@ -23,7 +23,7 @@ function DiagnosisForm({
       recordID: recordID ?? 0,
     },
     onSubmit: (values: FormikValuesType) => {
-      navigate('/postdiagnosis', {
+      navigate("/postdiagnosis", {
         state: {
           recordID: values.recordID,
         },

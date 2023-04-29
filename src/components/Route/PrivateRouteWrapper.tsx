@@ -1,6 +1,6 @@
-import { ReactElement, FC } from 'react';
-import { Navigate } from 'react-router-dom';
-import useAuthState from 'renderer/client/utils/hooks/useAuthState';
+import { ReactElement, FC } from "react";
+import { Navigate } from "react-router-dom";
+import useAuthState from "renderer/client/utils/hooks/useAuthState";
 
 const PrivateRouteWrapper = ({
   element: Element,

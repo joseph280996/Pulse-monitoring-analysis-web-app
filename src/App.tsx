@@ -1,20 +1,20 @@
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Outlet,
-} from 'react-router-dom';
-import ContextWrapper from './components/ContextWrapper';
-import Diagnosis from './pages/diagnosis';
-import Finish from './pages/finish';
-import PostDiagnosis from './pages/postDiagnosis';
-import ExportDataPage from './pages/exportData';
-import NotFoundPage from './pages/404';
-import LandingPage from './pages/landingPage';
-import './App.global.scss';
-import PrivateRouteWrapper from './components/Route/PrivateRouteWrapper';
-import AuthRoutes from './pages/auth/AuthRoutes';
+} from "react-router-dom";
+import ContextWrapper from "./components/ContextWrapper";
+import Diagnosis from "./pages/diagnosis";
+import Finish from "./pages/finish";
+import PostDiagnosis from "./pages/postDiagnosis";
+import ExportDataPage from "./pages/exportData";
+import NotFoundPage from "./pages/404";
+import LandingPage from "./pages/landingPage";
+import "./App.global.scss";
+import PrivateRouteWrapper from "./components/Route/PrivateRouteWrapper";
+import AuthRoutes from "./pages/auth/AuthRoutes";
 
 function BasePage(): ReactElement {
   return (

@@ -1,11 +1,11 @@
-import classNames from 'classnames';
-import { ReactElement } from 'react';
-import { Form } from 'react-bootstrap';
-import Button from 'renderer/client/components/Button';
-import Message from 'renderer/client/components/Message';
-import { TextFieldWithKeyboard } from 'renderer/client/components/TextField';
-import './SignInForm.scss';
-import { ISignInFormProps } from './SignInTypes';
+import classNames from "classnames";
+import { ReactElement } from "react";
+import { Form } from "react-bootstrap";
+import Button from "renderer/client/components/Button";
+import Message from "renderer/client/components/Message";
+import { TextFieldWithKeyboard } from "renderer/client/components/TextField";
+import "./SignInForm.scss";
+import { ISignInFormProps } from "./SignInTypes";
 
 function SignInFormComponent({
   handleSubmit,
@@ -20,7 +20,7 @@ function SignInFormComponent({
   setFieldValue,
 }: ISignInFormProps): ReactElement {
   return (
-    <div className={classNames('Form-container', 'SignInForm')}>
+    <div className={classNames("Form-container", "SignInForm")}>
       <Form className="Form" onSubmit={handleSubmit}>
         <div className="SignInForm-fieldsWrapper">
           <div className="Form-title">

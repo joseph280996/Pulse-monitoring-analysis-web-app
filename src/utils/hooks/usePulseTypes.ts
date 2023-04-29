@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
-import { PulseType } from '../../types';
-import pulseTypeService from '../services/pulseTypeService';
+import { useCallback, useEffect, useState } from "react";
+import { PulseType } from "../../types";
+import pulseTypeService from "../services/pulseTypeService";
 
 type UsePulseType = {
   pulseTypes: PulseType[];

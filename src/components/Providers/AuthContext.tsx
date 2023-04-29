@@ -5,8 +5,8 @@ import {
   SetStateAction,
   FC,
   PropsWithChildren,
-} from 'react';
-import { ObjectWithStringIndexing } from '../../types';
+} from "react";
+import { ObjectWithStringIndexing } from "../../types";
 
 export interface IBasicAuthType extends ObjectWithStringIndexing {
   username: string;
@@ -24,8 +24,8 @@ export type AuthContextValues = {
 
 const AuthContext = createContext<AuthContextValues>({
   auth: {
-    username: '',
-    password: '',
+    username: "",
+    password: "",
     isSignedIn: false,
   },
   setAuth: () => {},
@@ -33,8 +33,8 @@ const AuthContext = createContext<AuthContextValues>({
 
 export const AuthProvider: FC = ({ children }: PropsWithChildren) => {
   const [auth, setAuth] = useState<IAuthType>({
-    username: 'pulsemonitoring',
-    password: 'password',
+    username: "pulsemonitoring",
+    password: "password",
     isSignedIn: false,
   });
   return (

@@ -1,5 +1,5 @@
-import { MouseEventHandler } from 'react';
-import { ILineChartProps } from '../../components/Chart/LineChart/LineChartTypes';
+import { MouseEventHandler } from "react";
+import { ILineChartProps } from "../../components/Chart/LineChart/LineChartTypes";
 
 type FormikValuesType = {
   pulsePositionID: number;
@@ -12,7 +12,7 @@ export interface IDiagnosisFormProps extends ILineChartProps {
   onStart: (pulsePositionID: number) => MouseEventHandler;
   onReset: MouseEventHandler;
   onRecord: MouseEventHandler;
-  onStop:  MouseEventHandler;
+  onStop: MouseEventHandler;
   recordedStartTime?: number;
   recordID?: number;
 }

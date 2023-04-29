@@ -1,5 +1,5 @@
-import { FC, ReactElement } from 'react';
-import contexts from '../utils/context';
+import { FC, ReactElement } from "react";
+import contexts from "../utils/context";
 
 const ContextWrapper: FC = ({ children }): ReactElement => {
   return contexts.reduce(

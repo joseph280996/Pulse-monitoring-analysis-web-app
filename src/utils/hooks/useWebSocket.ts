@@ -1,15 +1,14 @@
-import { useState, useEffect } from 'react';
-import WebSocketController from '../controller/WebSocketController';
-import { OnRecordedDataWSMessageConfigType } from '../onRecordedDataWSMessage';
-import { OnRecordIDWsMessageConfigType } from '../onRecordIDWsMessage';
+import { useEffect, useState } from "react";
+import WebSocketClient from "../infrastructure/clients/WebSocketClient";
+import { type OnRecordedDataWSMessageConfigType } from "../../handlers/onRecordedDataWSMessage";
 
-let wsController: WebSocketController | null = null;
+let wsController: WebSocketClient | null = null;
 
-type UseWebsocketReturnType = {
+interface UseWebsocketReturnType {
   error?: ErrorEvent;
   readyState?: number;
-  wsController: WebSocketController | null;
-};
+  wsController: WebSocketClient | null;
+}
 
 type UseWebSocketType = (
   messageHandlerFactoryProps: OnRecordedDataWSMessageConfigType &
@@ -25,10 +24,10 @@ const useWebSocket: UseWebSocketType = (
   );
   useEffect(() => {
     if (!wsController || wsController.status === WebSocket.CLOSED) {
-      wsController = new WebSocketController({
+      wsController = new WebSocketClient({
         onOpen: () => {
           setReadyState(wsController?.status);
-          console.log('WebSocket connection established');
+          console.log("WebSocket connection established");
         },
         onError: (err: Event): void => {
           setError(err as ErrorEvent);

@@ -1,8 +1,8 @@
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import classNames from 'classnames';
-import { MouseEventHandler, ReactElement } from 'react';
-import StyledButton, { IButtonWithIconProps } from '../StyledButton';
-import './StartButton.scss';
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import classNames from "classnames";
+import { MouseEventHandler, ReactElement } from "react";
+import StyledButton, { IButtonWithIconProps } from "../StyledButton";
+import "./StartButton.scss";
 
 interface IStartButtonProps extends IButtonWithIconProps {
   onStart: MouseEventHandler;
@@ -17,7 +17,7 @@ const StartButton = ({
     <StyledButton
       icon={faPlay}
       wrapperClassName="StartButton-wrapper"
-      className={classNames('StartButton', className)}
+      className={classNames("StartButton", className)}
       onClick={onStart}
       {...buttonProps}
     />

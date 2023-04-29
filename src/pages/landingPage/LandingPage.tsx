@@ -1,7 +1,7 @@
-import { ReactElement } from 'react';
-import DiagnoseButton from '../../components/Button/DiagnoseButton';
-import ExportDataButton from '../../components/Button/ExportDataButton';
-import './LandingPage.scss';
+import { ReactElement } from "react";
+import DiagnoseButton from "../../components/Button/DiagnoseButton";
+import ExportDataButton from "../../components/Button/ExportDataButton";
+import "./LandingPage.scss";
 
 const LandingPage = (): ReactElement => {
   return (

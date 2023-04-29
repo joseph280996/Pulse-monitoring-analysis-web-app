@@ -1,7 +1,7 @@
-import classNames from 'classnames';
-import { ReactElement } from 'react';
-import { Spinner } from 'react-bootstrap';
-import './LoadingSpinner.scss';
+import classNames from "classnames";
+import { ReactElement } from "react";
+import { Spinner } from "react-bootstrap";
+import "./LoadingSpinner.scss";
 
 type LoadingSpinnerPropsType = {
   className?: string;
@@ -15,9 +15,9 @@ const LoadingSpinner = ({
   message,
 }: LoadingSpinnerPropsType): ReactElement => {
   return (
-    <div className={classNames('Loading-container', wrapperClassName)}>
+    <div className={classNames("Loading-container", wrapperClassName)}>
       <Spinner
-        className={classNames('Loading-animation', className)}
+        className={classNames("Loading-animation", className)}
         animation="border"
         role="status"
       />
@@ -27,8 +27,8 @@ const LoadingSpinner = ({
 };
 
 LoadingSpinner.defaultProps = {
-  className: '',
-  wrapperClassName: '',
+  className: "",
+  wrapperClassName: "",
   message: null,
 };
 

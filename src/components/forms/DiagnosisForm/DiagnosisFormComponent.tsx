@@ -1,23 +1,23 @@
 /* eslint-disable no-nested-ternary */
-import { FormikProps } from 'formik';
-import { takeRight } from 'lodash';
-import { ReactElement } from 'react';
-import { Form } from 'react-bootstrap';
-import { LineSeriesPoint } from 'react-vis';
+import { FormikProps } from "formik";
+import { takeRight } from "lodash";
+import { ReactElement } from "react";
+import { Form } from "react-bootstrap";
+import { LineSeriesPoint } from "react-vis";
 import {
   ContinueButton,
   RecordButton,
   ResetButton,
   StartButton,
   StopButton,
-} from 'renderer/client/components/Button';
-import LineChart from 'renderer/client/components/Chart/LineChart';
-import Overlay from 'renderer/client/components/Overlay';
-import { PulsePositionSelect } from 'renderer/client/components/Select';
-import './DiagnosisForm.scss';
+} from "renderer/client/components/Button";
+import LineChart from "renderer/client/components/Chart/LineChart";
+import Overlay from "renderer/client/components/Overlay";
+import { PulsePositionSelect } from "renderer/client/components/Select";
+import "./DiagnosisForm.scss";
 import DiagnosisFormValuesType, {
   IDiagnosisFormProps,
-} from './DiagnosisFormTypes';
+} from "./DiagnosisFormTypes";
 
 interface IDiagnosisFormComponentProps
   extends IDiagnosisFormProps,

@@ -1,5 +1,5 @@
-import { MouseEventHandler } from 'react';
+import { type MouseEventHandler, type PropsWithChildren } from "react";
 
-export type OverlayPropType = {
+export interface OverlayPropType extends PropsWithChildren {
   onClick?: MouseEventHandler;
-};
+}

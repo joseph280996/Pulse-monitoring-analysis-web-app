@@ -1,6 +1,6 @@
-import { FormikProps } from 'formik';
-import { FieldConfig } from 'renderer/client/components/types';
-import { IBasicAuthType } from 'renderer/client/utils/context/AuthContext';
+import { FormikProps } from "formik";
+import { FieldConfig } from "renderer/client/components/types";
+import { IBasicAuthType } from "renderer/client/utils/context/AuthContext";
 
 export type FakeAuthResolveType = {
   isSignedIn: boolean;

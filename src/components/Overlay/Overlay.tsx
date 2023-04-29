@@ -1,8 +1,6 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-import { ReactElement, FC } from 'react';
-import './Overlay.scss';
-import { OverlayPropType } from './OverlayTypes';
+import { type FC, type ReactElement } from "react";
+import "./Overlay.scss";
+import { type OverlayPropType } from "./OverlayTypes";
 
 const Overlay: FC<OverlayPropType> = ({ children, onClick }): ReactElement => {
   return (

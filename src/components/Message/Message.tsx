@@ -1,5 +1,5 @@
-import { ReactElement } from 'react';
-import { Alert } from 'react-bootstrap';
+import { ReactElement } from "react";
+import { Alert } from "react-bootstrap";
 
 export type MessageProps = {
   className?: string;
@@ -12,10 +12,10 @@ function Message({
   className,
   message,
   error,
-  variant = 'primary',
+  variant = "primary",
 }: MessageProps): ReactElement {
   return (
-    <Alert className={className} variant={error ? 'danger' : variant}>
+    <Alert className={className} variant={error ? "danger" : variant}>
       {message || error}
     </Alert>
   );

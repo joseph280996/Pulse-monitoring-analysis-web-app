@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 
 function ForgotPass(): ReactElement {
   return <div>ForgotPass</div>;

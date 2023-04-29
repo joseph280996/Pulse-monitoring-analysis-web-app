@@ -1,12 +1,20 @@
-import { ReactElement, useState, SetStateAction, useCallback } from 'react';
-import { Spinner } from 'react-bootstrap';
-import { ReceivedDatum, WSMessageType } from 'renderer/client/types';
-import useSensorData from 'renderer/client/utils/hooks/useSensorData';
-import ecgSensorService from 'renderer/client/utils/services/ecgSensorService';
-import { ECG_POST_TYPE } from 'renderer/client/utils/variables';
-import useWindowDimensions from '../../utils/hooks/useWindowDimensions';
-import LoadingSpinner from '../../components/LoadingSpinner';
-import DiagnosisPageComponent from './DiagnosisPageCompnent';
+import {
+  type ReactElement,
+  type SetStateAction,
+  useCallback,
+  useState,
+} from "react";
+import { Spinner } from "react-bootstrap";
+import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import useSensorData from "../../utils/hooks/useSensorData";
+import ecgSensorService from "../../utils/infrastructure/services/ecgSensorService";
+import { ECG_POST_TYPE } from "../../utils/infrastructure/constants";
+import {
+  type ReceivedDatum,
+  type WSMessageType,
+} from "../../utils/infrastructure/common/types";
+import DiagnosisPageComponent from "./DiagnosisPageComponent";
 
 const setDataFn =
   (newData: WSMessageType): SetStateAction<ReceivedDatum[]> =>
@@ -31,22 +39,21 @@ function DiagnosisPageContainer(): ReactElement {
     useSensorData(setDataFn);
 
   const onStart = useCallback(
-    (handPositionID) => () => {
+    (handPositionID: number) => () => {
       setIsStarted(true);
-      wsController?.sendMessage(`start;${JSON.stringify({handPositionID})}`);
-      ecgSensorService.postAsync({ operation_type_id: ECG_POST_TYPE.START });
+      wsController?.sendMessage(`start;${JSON.stringify({ handPositionID })}`);
+      void ecgSensorService.postAsync({
+        operation_type_id: ECG_POST_TYPE.START,
+      });
     },
     [wsController]
   );
 
-  const onReset = useCallback(
-    () => {
-      setRecordedStartTime(undefined);
-      wsController?.sendMessage(`start;`);
-      setIsFinished(false);
-    },
-    [wsController]
-  );
+  const onReset = useCallback(() => {
+    setRecordedStartTime(undefined);
+    wsController?.sendMessage(`start;`);
+    setIsFinished(false);
+  }, [wsController]);
 
   const onRecordHandler = useCallback(() => {
     setRecordedStartTime(data[data.length - 1].timeStamp);
@@ -55,7 +62,9 @@ function DiagnosisPageContainer(): ReactElement {
   const onStopHandler = useCallback(
     () => () => {
       wsController?.sendMessage(`stop;`);
-      ecgSensorService.postAsync({ operation_type_id: ECG_POST_TYPE.STOP });
+      void ecgSensorService.postAsync({
+        operation_type_id: ECG_POST_TYPE.STOP,
+      });
       setIsFinished(true);
     },
     [wsController, recordedStartTime, data]

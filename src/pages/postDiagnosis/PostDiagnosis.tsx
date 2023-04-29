@@ -1,11 +1,11 @@
-import { ReactElement, useMemo } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
-import useRecord from 'renderer/client/utils/hooks/useRecord';
-import useWindowDimensions from 'renderer/client/utils/hooks/useWindowDimensions';
-import recordDataToLineChartDataMapper from 'renderer/client/utils/mapper/recordDataToLineChartDataMapper';
-import LoadingSpinner from 'renderer/client/components/LoadingSpinner';
-import PostDiagnosisFormContainer from 'renderer/client/forms/PostDiagnosisForm';
-import { PostDiagnosisLocationState } from './PostDiagnosisTypes';
+import { type ReactElement, useMemo } from "react";
+import { Navigate, useLocation } from "react-router-dom";
+import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
+import { type PostDiagnosisLocationState } from "./PostDiagnosisTypes";
+import useDiagnosis from "../../utils/hooks/useDiagnosis";
+import recordDataToLineChartDataMapper from "../../utils/domain/mappers/recordDataToLineChartDataMapper";
+import PostDiagnosisFormContainer from "../../components/forms/PostDiagnosisForm";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 function PostDiagnosis(): ReactElement {
   const location = useLocation();
@@ -13,29 +13,27 @@ function PostDiagnosis(): ReactElement {
   const locationState: PostDiagnosisLocationState =
     location?.state as PostDiagnosisLocationState;
   const { recordID } = location.state as PostDiagnosisLocationState;
-  const { record, isLoading: isRecordLoading } = useRecord(recordID);
+  const { record, isLoading: isRecordLoading } = useDiagnosis(recordID);
 
   const recordedDataToDisplay = useMemo(
-    () => recordDataToLineChartDataMapper(record?.data),
-    [record?.data]
+    () => recordDataToLineChartDataMapper(record),
+    [record]
   );
 
-  if (!locationState || !locationState.recordID) {
+  if (!locationState?.recordID) {
     return <Navigate to="/" replace />;
   }
-  if (isRecordLoading || !record || !record.data) {
+  if (isRecordLoading || !record) {
     return <LoadingSpinner />;
   }
   return (
     <div className="PostDiagnosis">
       <PostDiagnosisFormContainer
-        width={width}
-        height={height - 135}
         data={recordedDataToDisplay}
         initialValues={{
           recordID,
           pulseTypeID: 1,
-          patientName: '',
+          patientName: "",
         }}
       />
     </div>

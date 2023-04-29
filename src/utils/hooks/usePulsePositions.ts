@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
-import { PulsePositionType } from '../../types';
-import pulsePositionService from '../services/pulsePositionService';
+import { useCallback, useEffect, useState } from "react";
+import { PulsePositionType } from "../../types";
+import pulsePositionService from "../services/pulsePositionService";
 
 type UsePulsePosition = {
   pulsePositions: PulsePositionType[];
@@ -17,7 +17,7 @@ const usePulsePositions = (): UsePulsePosition => {
         [
           {
             id: 0,
-            name: '',
+            name: "",
           },
         ].concat(data)
       );

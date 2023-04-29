@@ -1,4 +1,4 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, useState } from "react";
 import {
   XYPlot,
   XYPlotProps,
@@ -6,7 +6,7 @@ import {
   LineSeries,
   Highlight,
   HighlightArea,
-} from 'react-vis';
+} from "react-vis";
 
 function LineChart({
   width,

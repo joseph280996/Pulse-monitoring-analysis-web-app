@@ -1,12 +1,11 @@
-import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
-import classNames from 'classnames';
-import DatePicker from 'react-datepicker';
-import { Link } from 'react-router-dom';
-import StyledButton from '../../components/Button';
-import ConfirmExportButton from '../../components/Button/ConfirmExportButton';
-import Overlay from '../../components/Overlay';
-import './ExportDataForm.scss';
-import { ExportDataFormComponentPropsType } from './ExportDataFormTypes';
+import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import classNames from "classnames";
+import { Link } from "react-router-dom";
+import "./ExportDataForm.scss";
+import { type ExportDataFormComponentPropsType } from "./ExportDataFormTypes";
+import Overlay from "../../Overlay";
+import StyledButton from "../../Button";
+import ConfirmExportButton from "../../Button/ConfirmExportButton";
 
 const ExportDataFormComponent = ({
   handleSubmit,
@@ -33,11 +32,11 @@ const ExportDataFormComponent = ({
           </Overlay>
         )}
         <DatePicker
-          weekDayClassName={() => 'ExportDataForm-datePickerWeekday'}
+          weekDayClassName={() => "ExportDataForm-datePickerWeekday"}
           showPopperArrow={false}
           startDate={startDate}
           endDate={endDate}
-          dayClassName={() => 'ExportDataForm-datePickerDay'}
+          dayClassName={() => "ExportDataForm-datePickerDay"}
           calendarClassName="ExportDataForm-datePickerCalendar"
           renderCustomHeader={({
             monthDate,
@@ -53,23 +52,23 @@ const ExportDataFormComponent = ({
                   className="react-datepicker__navigation react-datepicker__navigation--previous"
                   style={{
                     ...(customHeaderCount === 1
-                      ? { visibility: 'hidden' }
+                      ? { visibility: "hidden" }
                       : {}),
                   }}
                   onClick={decreaseMonth}
                 >
                   <span
                     className={classNames(
-                      'react-datepicker__navigation-icon react-datepicker__navigation-icon--previous'
+                      "react-datepicker__navigation-icon react-datepicker__navigation-icon--previous"
                     )}
                   >
-                    {'<'}
+                    {"<"}
                   </span>
                 </button>
                 <span className="ExportDataForm-datePickerHeader">
-                  {monthDate.toLocaleString('en-US', {
-                    month: 'long',
-                    year: 'numeric',
+                  {monthDate.toLocaleString("en-US", {
+                    month: "long",
+                    year: "numeric",
                   })}
                 </span>
                 <button
@@ -77,16 +76,16 @@ const ExportDataFormComponent = ({
                   aria-label="Next Month"
                   className="react-datepicker__navigation react-datepicker__navigation--next"
                   style={
-                    customHeaderCount === 0 ? { visibility: 'hidden' } : {}
+                    customHeaderCount === 0 ? { visibility: "hidden" } : {}
                   }
                   onClick={increaseMonth}
                 >
                   <span
                     className={classNames(
-                      'react-datepicker__navigation-icon react-datepicker__navigation-icon--next'
+                      "react-datepicker__navigation-icon react-datepicker__navigation-icon--next"
                     )}
                   >
-                    {'>'}
+                    {">"}
                   </span>
                 </button>
               </div>

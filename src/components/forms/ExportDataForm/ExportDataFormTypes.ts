@@ -1,5 +1,5 @@
-import { SyntheticEvent } from 'react';
-import { FormikHandleSubmitType } from 'renderer/client/types';
+import { type SyntheticEvent } from "react";
+import { type FormikHandleSubmitType } from "../../../utils/infrastructure/common/types";
 
 export type DatePickerSelectedRangeType = [Date | null, Date | null];
 

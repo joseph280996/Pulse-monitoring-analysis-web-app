@@ -1,5 +1,5 @@
-import classNames from 'classnames';
-import { PropsWithChildren, ReactElement } from 'react';
+import classNames from "classnames";
+import { PropsWithChildren, ReactElement } from "react";
 
 type SelectProps = {
   id?: any;
@@ -22,7 +22,7 @@ function Select({
   return (
     <select
       id={id}
-      className={classNames('Select', className)}
+      className={classNames("Select", className)}
       name={name}
       value={value}
       onBlur={onBlur}

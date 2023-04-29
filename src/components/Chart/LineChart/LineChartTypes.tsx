@@ -1,4 +1,4 @@
-import { LineSeriesPoint } from 'react-vis';
+import { LineSeriesPoint } from "react-vis";
 
 export interface ILineChartProps {
   data: LineSeriesPoint[];

@@ -1,6 +1,6 @@
-import { ReactElement } from 'react';
-import SignInForm from '../../../forms/SignInForm/SignInForm';
-import './SignInPage.scss';
+import { ReactElement } from "react";
+import SignInForm from "../../../forms/SignInForm/SignInForm";
+import "./SignInPage.scss";
 
 const SignInPage = (): ReactElement => {
   return (

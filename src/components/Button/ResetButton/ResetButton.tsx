@@ -1,7 +1,7 @@
-import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
-import { ReactElement, MouseEventHandler } from 'react';
-import StyledButton from '../StyledButton';
-import './ResetButton.scss';
+import { faRedoAlt } from "@fortawesome/free-solid-svg-icons";
+import { ReactElement, MouseEventHandler } from "react";
+import StyledButton from "../StyledButton";
+import "./ResetButton.scss";
 
 type ResetButtonProps = {
   onReset: MouseEventHandler;

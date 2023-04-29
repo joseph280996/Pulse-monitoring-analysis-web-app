@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { AuthProvider } from './AuthContext';
+import { FC } from "react";
+import { AuthProvider } from "./AuthContext";
 
 const contexts = [AuthProvider] as FC[];
 

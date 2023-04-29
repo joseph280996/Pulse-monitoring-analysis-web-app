@@ -1,6 +1,6 @@
-import { WS_MESSAGE_TYPE } from '../variables';
-import onRecordedDataWSMessage from '../onRecordedDataWSMessage';
-import onRecordIDWsMessage from '../onRecordIDWsMessage';
+import { WS_MESSAGE_TYPE } from "../variables";
+import onRecordedDataWSMessage from "../onRecordedDataWSMessage";
+import onRecordIDWsMessage from "../onRecordIDWsMessage";
 
 type WebSocketMessageHandlerFactoryReturnType = (...rest: any) => void;
 
@@ -16,7 +16,7 @@ class WebSocketMessageHandlerFactory {
         return onRecordIDWsMessage;
       }
 
-      throw new Error('Unsupported message type requested');
+      throw new Error("Unsupported message type requested");
     } catch (error) {
       const castedError = error as Error;
       // eslint-disable-next-line no-console
