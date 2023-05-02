@@ -1,17 +1,13 @@
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
 import { ReactElement, useState, useRef } from "react";
-import Keyboard from "react-simple-keyboard";
 import StyledButton from "../../Button";
 import Overlay from "../../Overlay";
-import VirtualKeyboard from "../../VirtualKeyboard";
-import { VirtualKeyboardChangeEventHandlerType } from "../../VirtualKeyboard/VirtualKeyboard";
 import TextField from "../TextField";
 import { ITextFieldProps } from "../TextFieldTypes";
 import "./TextFieldWithKeyboard.scss";
 
-interface ITextFieldWithKeyboard extends Omit<ITextFieldProps, "onChange"> {
-  onChange: VirtualKeyboardChangeEventHandlerType;
+interface ITextFieldWithKeyboard extends ITextFieldProps {
 }
 
 const TextFieldWithKeyboard = ({
@@ -20,7 +16,6 @@ const TextFieldWithKeyboard = ({
   ...textFieldProps
 }: ITextFieldWithKeyboard): ReactElement => {
   const [isOpenOverLay, setIsOpenOverlay] = useState<boolean>(false);
-  const keyboardRef = useRef<typeof Keyboard>();
   return (
     <div>
       {isOpenOverLay && (
@@ -31,7 +26,7 @@ const TextFieldWithKeyboard = ({
                 className={classNames("TextFieldWithKeyboard-field", className)}
                 onChange={(event) => {
                   event.stopPropagation();
-                  onChange((event.target as HTMLInputElement).value);
+                  //onChange((event.target as HTMLInputElement).value);
                 }}
                 {...textFieldProps}
               />
@@ -43,14 +38,6 @@ const TextFieldWithKeyboard = ({
                 icon={faWindowClose}
               />
             </div>
-            <VirtualKeyboard
-              enterDisplayOverride="Close"
-              onEnterOverride={() => {
-                setIsOpenOverlay(false);
-              }}
-              onChange={onChange}
-              keyboardRef={keyboardRef}
-            />
           </div>
         </Overlay>
       )}
@@ -60,7 +47,7 @@ const TextFieldWithKeyboard = ({
           setIsOpenOverlay(true);
         }}
         onChange={(event) => {
-          onChange((event.target as HTMLInputElement).value);
+          //onChange((event.target as HTMLInputElement).value);
         }}
         {...textFieldProps}
       />
