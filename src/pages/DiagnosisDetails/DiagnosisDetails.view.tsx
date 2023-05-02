@@ -6,9 +6,9 @@ import {
   ListItemText,
 } from "@mui/material";
 import "./Diagnosis.style.css";
-import type { IDiagnosisViewProps } from "./Diagnosis.types";
+import type { IDiagnosisDetailsViewProps } from "./DiagnosisDetails.types";
 
-function DiagnosisView({ diagnoses }: IDiagnosisViewProps): JSX.Element {
+function DiagnosisDetailsView({ diagnoses }: IDiagnosisDetailsViewProps): JSX.Element {
   return (
     <div className="App">
       <header className="App-header">
@@ -29,4 +29,4 @@ function DiagnosisView({ diagnoses }: IDiagnosisViewProps): JSX.Element {
   );
 }
 
-export default DiagnosisView;
+export default DiagnosisDetailsView;

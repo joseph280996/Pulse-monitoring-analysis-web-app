@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
-import DiagnosisForm from "../../forms/DiagnosisForm";
-import { IDiagnosisFormContainerProps } from "../../forms/DiagnosisForm/DiagnosisForm";
+import DiagnosisForm, { IDiagnosisFormContainerProps } from "../../components/forms/DiagnosisForm/DiagnosisForm";
 
 const DiagnosisPageComponent = ({
   height,

@@ -14,7 +14,6 @@ import {
   type ReceivedDatum,
   type WSMessageType,
 } from "../../utils/infrastructure/common/types";
-import DiagnosisPageComponent from "./DiagnosisPageComponent";
 
 const setDataFn =
   (newData: WSMessageType): SetStateAction<ReceivedDatum[]> =>
