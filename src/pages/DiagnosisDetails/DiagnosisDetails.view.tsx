@@ -1,6 +1,6 @@
 import { ArrowRight } from '@mui/icons-material';
 import { List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-import 'Diagnosis.style.css';
+import './DiagnosisDetails.style.css';
 
 function DiagnosisView() {
   return (

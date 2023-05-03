@@ -1,4 +1,4 @@
-import DiagnosisView from "./Diagnosis.view";
+import DiagnosisView from "./DiagnosisDetails.view";
 
 const DiagnosisPage = () => {
     return (
