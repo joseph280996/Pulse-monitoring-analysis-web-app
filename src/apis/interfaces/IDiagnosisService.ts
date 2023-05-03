@@ -1,6 +1,6 @@
 import Diagnosis from "../../dataObjects/Diagnosis";
+import { IDiagnosisQueryKey } from "./queryKeys/IDiagnosisQueryKeys";
+import { IGetService } from "./IGetService";
 
-export interface IDiagnosisService {
-    getDiagnosisById(id : number): Promise<Diagnosis | undefined>
-
-}
+export interface IDiagnosisService
+  extends IGetService<IDiagnosisQueryKey, Diagnosis> {}
