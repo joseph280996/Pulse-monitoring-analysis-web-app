@@ -44,7 +44,6 @@ class PulsePositionService implements IPulsePositionService {
 
     return PulsePositionResponseToModelMapper.map(response.data);
   }
-
 }
 
 export default PulsePositionService;

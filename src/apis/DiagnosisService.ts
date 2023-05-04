@@ -9,7 +9,7 @@ class DiagnosisService implements IDiagnosisService {
   private static _instance?: DiagnosisService;
   private readonly httpClient!: HttpClient;
 
-  public get instance() {
+  public static get instance() {
     if (!DiagnosisService._instance) {
       DiagnosisService._instance = new DiagnosisService();
     }
