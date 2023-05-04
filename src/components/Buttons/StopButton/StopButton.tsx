@@ -1,7 +1,8 @@
 import { faStop } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import { ReactElement, MouseEventHandler } from 'react';
-import StyledButton, { IButtonWithIconProps } from '../StyledButton';
+import StyledButton from '../StyledButton';
+import { IButtonWithIconProps } from '../StyledButton/StyledButton.types';
 import './StopButton.scss';
 
 interface IStopButtonProps extends IButtonWithIconProps {

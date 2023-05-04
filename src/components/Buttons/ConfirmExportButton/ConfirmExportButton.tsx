@@ -1,7 +1,8 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { ReactElement } from 'react';
 import './ConfirmExportButton.scss';
-import StyledButton, { IButtonProps } from '../StyledButton';
+import StyledButton from '../StyledButton';
+import { IButtonProps } from '../StyledButton/StyledButton.types';
 
 const ContinueButton = ({ type = 'button' }: IButtonProps): ReactElement => {
   return (

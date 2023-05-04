@@ -1,7 +1,8 @@
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import { MouseEventHandler, ReactElement } from 'react';
-import StyledButton, { IButtonWithIconProps } from '../StyledButton';
+import StyledButton from '../StyledButton';
+import { IButtonWithIconProps } from '../StyledButton/StyledButton.types';
 import './RecordButton.scss';
 
 interface IRecordButtonProps extends IButtonWithIconProps {
