@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import PulsePositionService from '../apis/PulsePositionService';
 import { PulsePosition } from '../models/PulsePosition';
+import { UsePulsePosition } from './types/usePulsePositions.types';
 
 const usePulsePositions = (): UsePulsePosition => {
   const [pulsePositions, setPulsePositions] = useState<PulsePosition[]>([]);
