@@ -23,6 +23,7 @@ class DiagnosisService implements IDiagnosisService {
 
   async getAsync(): Promise<Diagnosis[]> {
     const { data, error } = await this.httpClient.get(``);
+    console.log(data);
 
     if (error) {
       console.error(error.message);

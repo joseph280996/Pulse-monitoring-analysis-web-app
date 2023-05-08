@@ -1,4 +1,4 @@
-import ZoomableChartList from "../../components/ZoomableChartList";
+import ZoomableChartList from "../../components/Chart/ZoomableChartList";
 import { type AnalysisViewPropType } from "./Analysis.types";
 
 const AnalysisView = ({ dataList }: AnalysisViewPropType) => {

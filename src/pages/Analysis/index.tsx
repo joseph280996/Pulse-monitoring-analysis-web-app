@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import AnalysisView from "./Analysis.view";
 
 const getMinXValueFromDataList = (dataList: any[]) => {
@@ -10,7 +11,7 @@ const getMinXValueFromDataList = (dataList: any[]) => {
     })
 }
 
-const Analysis = () => {
+const Analysis = (): ReactElement => {
     const data: any[] = [];
 
     return (

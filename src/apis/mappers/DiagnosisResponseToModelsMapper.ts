@@ -3,20 +3,23 @@ import Record from "../../models/Record";
 import RecordedData from "../../models/RecordedData";
 
 function map(diagnoses: any[]): Diagnosis[] {
-  return diagnoses.map(
-    (diagnosis: any) =>
-      new Diagnosis(
-        diagnosis.pulseTypeId,
-        diagnosis.patientId,
-        mapRecordResponseToModels(diagnosis.piezoelectricRecord),
-        diagnosis.dateTimeCreated,
-        diagnosis.dateTimeUpdated,
-        diagnosis.id
-      )
-  );
+  return diagnoses.map((diagnosis: any) => {
+    return new Diagnosis(
+      diagnosis.pulseTypeId,
+      diagnosis.patientId,
+      diagnosis.dateTimeCreated,
+      diagnosis.dateTimeUpdated,
+      diagnosis.id,
+      mapRecordResponseToModels(diagnosis.piezoelectricRecord)
+    );
+  });
 }
 
 export function mapRecordResponseToModels(record: any) {
+  if (!record) {
+    return record;
+  }
+
   return new Record(
     record.dateTimeCreated,
     record.dateTimeUpdated,
@@ -33,5 +36,5 @@ export function mapRecordDataResponseToModels(recordedData: any[]) {
 }
 
 export default {
-  map
-}
+  map,
+};

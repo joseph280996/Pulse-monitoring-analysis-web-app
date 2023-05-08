@@ -3,7 +3,7 @@ import {
   ChangeEventHandler,
   FocusEventHandler,
 } from 'react';
-import { IField } from '../types';
+import { IField } from '../../common/types';
 
 export interface ITextFieldProps extends IField {
   onClick?: MouseEventHandler;

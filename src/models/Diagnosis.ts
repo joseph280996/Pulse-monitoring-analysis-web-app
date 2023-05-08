@@ -4,10 +4,10 @@ class Diagnosis {
   constructor(
     public pulseTypeId: number,
     public patientId: number,
-    public piezoelectricRecord: Record,
     public dateTimeCreated: string,
     public dateTimeUpdated: string,
-    public id?: number
+    public id?: number,
+    public piezoelectricRecord?: Record
   ) {}
 }
 

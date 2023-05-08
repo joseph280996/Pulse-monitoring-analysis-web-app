@@ -1,4 +1,4 @@
-import { type ComponentPropsWithDataType } from "../../common/types";
+import { ComponentPropsWithDataType } from "../../../common/types";
 
 export interface GetAxisDomainRequestType {
   data: any[];

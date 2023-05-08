@@ -6,7 +6,7 @@
   },
   "extends": [
     "plugin:react/recommended",
-    "standard-with-typescript",
+    "plugin:@typescript-eslint/recommended",
     "prettier",
     "plugin:prettier/recommended"
   ],
@@ -16,8 +16,9 @@
     "sourceType": "module",
     "project": ["./tsconfig.json"]
   },
-  "plugins": ["react"],
+  "plugins": ["react", "@typescript-eslint"],
   "rules": {
+    "react/react-in-jsx-scope": "off",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
     "semi": "off",
@@ -35,7 +36,7 @@
     "max-len": "off",
     "no-underscore-dangle": "off",
     "object-curly-newline": "off",
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": "off",
     "sort-imports": [
       "error",
       {
