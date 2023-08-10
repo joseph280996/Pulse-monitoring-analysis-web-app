@@ -1,0 +1,9 @@
+.slider {
+    min-width: 300px;
+}
+
+.slider-container {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+}

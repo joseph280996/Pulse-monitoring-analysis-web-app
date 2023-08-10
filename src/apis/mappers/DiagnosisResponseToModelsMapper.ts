@@ -1,38 +1,44 @@
 import Diagnosis from "../../models/Diagnosis";
-import Record from "../../models/Record";
-import RecordedData from "../../models/RecordedData";
+import RecordedInstance from "../../models/RecordInstance";
+import RecordSession from "../../models/RecordSession";
 
 function map(diagnoses: any[]): Diagnosis[] {
   return diagnoses.map((diagnosis: any) => {
+    const piezoRecordSession = mapRecordSessionResponseToModel(
+      diagnosis.piezoElectricRecords
+    );
+    const ecgRecordSession = mapRecordSessionResponseToModel(
+      diagnosis.ecgRecords
+    );
     return new Diagnosis(
       diagnosis.pulseTypeId,
       diagnosis.patientId,
       diagnosis.dateTimeCreated,
       diagnosis.dateTimeUpdated,
       diagnosis.id,
-      mapRecordResponseToModels(diagnosis.piezoelectricRecord)
+      piezoRecordSession,
+      ecgRecordSession
     );
   });
 }
 
-export function mapRecordResponseToModels(record: any) {
+function mapRecordSessionResponseToModel(recordSession: any): RecordSession {
+  return new RecordSession(
+    recordSession.diagnosisId,
+    recordSession.recordTypeId,
+    recordSession.id,
+    recordSession.dateTimeCreated,
+    recordSession.dateTimeUpdated,
+    mapRecordResponseToModels(recordSession.records)
+  );
+}
+
+export function mapRecordResponseToModels(record: any[]) {
   if (!record) {
     return record;
   }
 
-  return new Record(
-    record.dateTimeCreated,
-    record.dateTimeUpdated,
-    record.id,
-    mapRecordDataResponseToModels(record.data),
-    record.diagnosisID
-  );
-}
-
-export function mapRecordDataResponseToModels(recordedData: any[]) {
-  return recordedData.map(
-    (data) => new RecordedData(data.timeStamp, data.data)
-  );
+  return record.map((data) => new RecordedInstance(data.timeStamp, data.data));
 }
 
 export default {

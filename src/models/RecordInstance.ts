@@ -1,3 +1,3 @@
-export default class RecordedData {
+export default class RecordInstance {
   constructor(public timeStamp: number, public data: number) {}
 }

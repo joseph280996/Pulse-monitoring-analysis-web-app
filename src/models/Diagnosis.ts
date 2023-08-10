@@ -1,4 +1,4 @@
-import Record from "./Record";
+import RecordSession from "./RecordSession";
 
 class Diagnosis {
   constructor(
@@ -7,7 +7,8 @@ class Diagnosis {
     public dateTimeCreated: string,
     public dateTimeUpdated: string,
     public id?: number,
-    public piezoelectricRecord?: Record
+    public piezoElectricRecords?: RecordSession,
+    public ecgRecords?: RecordSession
   ) {}
 }
 

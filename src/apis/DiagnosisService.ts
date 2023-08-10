@@ -23,7 +23,6 @@ class DiagnosisService implements IDiagnosisService {
 
   async getAsync(): Promise<Diagnosis[]> {
     const { data, error } = await this.httpClient.get(``);
-    console.log(data);
 
     if (error) {
       console.error(error.message);
@@ -34,16 +33,16 @@ class DiagnosisService implements IDiagnosisService {
   }
 
   async getWithFilterAsync(queryKey: IDiagnosisQueryKey): Promise<Diagnosis[]> {
-    const { data, error } = await this.httpClient.get(
-      `/${queryKey.id}/records`
-    );
+    const { data, error } = await this.httpClient.get(`/${queryKey.id}`);
 
     if (error) {
       console.error(error.message);
       throw error;
     }
 
-    return DiagnosisResponseToModelsMapper.map(data);
+    console.log(data);
+
+    return DiagnosisResponseToModelsMapper.map([data]);
   }
 }
 

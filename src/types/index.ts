@@ -1,5 +1,5 @@
-import { FormEvent } from 'react';
-import RecordedData from '../models/RecordedData';
+import { FormEvent } from "react";
+import RecordedData from "../models/RecordInstance";
 
 export type FormikHandleSubmitType = (
   e?: FormEvent<HTMLFormElement> | undefined

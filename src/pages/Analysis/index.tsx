@@ -1,22 +1,19 @@
 import { ReactElement } from "react";
+import { useLoaderData } from "react-router-dom";
+import { ISingleDiagnosesLoaderReturnType } from "../../dataLoaders/types/diagnosesLoader.types";
+//import Diagnosis from "../../models/Diagnosis";
 import AnalysisView from "./Analysis.view";
 
-const getMinXValueFromDataList = (dataList: any[]) => {
-    let minValue = 0;
-    dataList.forEach(data => {
-        const firstElementTimeStamp = data[0].timeStamp;
-        if(firstElementTimeStamp < minValue){
-            minValue = 0;
-        }
-    })
-}
-
 const Analysis = (): ReactElement => {
-    const data: any[] = [];
-
-    return (
-        <AnalysisView dataList ={data}/>
-    );
+  const { diagnosis } = useLoaderData() as ISingleDiagnosesLoaderReturnType;
+  return (
+    <AnalysisView
+      dataLists={[
+        diagnosis?.piezoElectricRecords || [],
+        diagnosis?.ecgRecords || [],
+      ]}
+    />
+  );
 };
 
 export default Analysis;

@@ -1,8 +1,8 @@
-import { FC, MouseEventHandler } from 'react';
-import { AnySchema } from 'yup';
+import { FC, MouseEventHandler } from "react";
+import { AnySchema } from "yup";
 
 export interface ComponentPropsWithDataType {
-  dataList: any[];
+  dataLists: any[];
 }
 
 export interface IField {
@@ -15,7 +15,7 @@ export interface IField {
   className?: string;
 }
 
-export interface FieldConfig extends Omit<IField, 'name' | 'value'> {
+export interface FieldConfig extends Omit<IField, "name" | "value"> {
   FieldComponent?: FC<any>;
   label?: string;
   name: string;

@@ -1,3 +1,4 @@
+import { type DomainTuple, type VictoryZoomContainerProps } from "victory";
 import { ComponentPropsWithDataType } from "../../../common/types";
 
 export interface GetAxisDomainRequestType {
@@ -8,15 +9,16 @@ export interface GetAxisDomainRequestType {
   offset: number;
 }
 
-export interface ZoomableChartPropsType extends ComponentPropsWithDataType {
-  minZoomValue: (dataList: any[]) => number | number;
-  maxZoomValue: (dataList: any[]) => number | number;
+export interface ChartDomainType {
+  x: DomainTuple;
+  y?: DomainTuple;
 }
+
 export interface ZoomableChartViewPropsType extends ComponentPropsWithDataType {
-  leftBound: string;
-  rightBound: string;
-  bottomBound: string;
-  topBound: string;
-  onZoom: (event: Event, newValue: number | number[]) => void;
+  onZoom: (domain: ChartDomainType, props: VictoryZoomContainerProps) => void;
+  zoomDomain: Partial<ChartDomainType>;
+  zoomMin: number;
+  zoomMax: number;
   zoomValue: number;
+  zoomContainerProp: VictoryZoomContainerProps;
 }

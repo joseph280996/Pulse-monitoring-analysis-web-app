@@ -1,14 +1,11 @@
+import { ComponentPropsWithDataType } from "../../common/types";
 import ZoomableChartList from "../../components/Chart/ZoomableChartList";
-import { type AnalysisViewPropType } from "./Analysis.types";
 
-const AnalysisView = ({ dataList }: AnalysisViewPropType) => {
+const AnalysisView = ({ dataLists }: ComponentPropsWithDataType) => {
+  console.log(dataLists);
   return (
     <div>
-      <ZoomableChartList
-        dataList={dataList}
-        minZoomValue={() => 0}
-        maxZoomValue={() => 0}
-      />
+      <ZoomableChartList dataLists={dataLists} />
     </div>
   );
 };
