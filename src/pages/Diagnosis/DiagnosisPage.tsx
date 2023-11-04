@@ -31,7 +31,7 @@ function DiagnosisPageContainer(): ReactElement {
     useSensorData(setDataFn);
 
   const onStart = useCallback(
-    (handPositionID) => () => {
+    (handPositionID: number) => () => {
       setIsStarted(true);
       wsController?.sendMessage(`start;${JSON.stringify({handPositionID})}`);
       ecgSensorService.postAsync({ operation_type_id: ECG_POST_TYPE.START });

@@ -1,0 +1,182 @@
+[
+    {
+        "chineseName": "浮脉",
+        "id": 30,
+        "name": "Fu Mai",
+        "features": "Floating, Superficial"
+    },
+    {
+        "chineseName": "沉脉",
+        "id": 31,
+        "name": "Chen Mai",
+        "features": "Deep"
+    },
+    {
+        "chineseName": "迟脉",
+        "id": 32,
+        "name": "Chi Mai",
+        "features": "Slow"
+    },
+    {
+        "chineseName": "数脉",
+        "id": 33,
+        "name": "Shuo Mai",
+        "features": "Rapid"
+    },
+    {
+        "chineseName": "滑脉",
+        "id": 34,
+        "name": "Hua Mai",
+        "features": "Slippery, Rolling"
+    },
+    {
+        "chineseName": "涩脉",
+        "id": 35,
+        "name": "Se Mai",
+        "features": "Choppy, Hesitant"
+    },
+    {
+        "chineseName": "虚脉",
+        "id": 36,
+        "name": "Xu Mai",
+        "features": "Forceless, Empty, Deficient"
+    },
+    {
+        "chineseName": "实脉",
+        "id": 37,
+        "name": "Shi Mai",
+        "features": "Excess, Full, Replete, Forceful"
+    },
+    {
+        "chineseName": "长脉",
+        "id": 38,
+        "name": "Chang Mai",
+        "features": "Long"
+    },
+    {
+        "chineseName": "短脉",
+        "id": 39,
+        "name": "Duan Mai",
+        "features": "Short"
+    },
+    {
+        "chineseName": "洪脉",
+        "id": 40,
+        "name": "Hong Mai",
+        "features": "Surging, Flooding"
+    },
+    {
+        "chineseName": "微脉",
+        "id": 41,
+        "name": "Wei Mai",
+        "features": "Minute, Faint, Indistinct"
+    },
+    {
+        "chineseName": "紧脉",
+        "id": 42,
+        "name": "Jin Mai",
+        "features": "Tight, Tense"
+    },
+    {
+        "chineseName": "缓脉",
+        "id": 43,
+        "name": "Huan Mai",
+        "features": "Slowed down, Moderate, or Relaxed"
+    },
+    {
+        "chineseName": "芤脉",
+        "id": 44,
+        "name": "Kou Mai",
+        "features": "Hollow or Scallion Stalk, Green Onion"
+    },
+    {
+        "chineseName": "弦脉",
+        "id": 45,
+        "name": "Xian Mai",
+        "features": "Wiry, Taut"
+    },
+    {
+        "chineseName": "革脉",
+        "id": 46,
+        "name": "Ge Mai",
+        "features": "Leathery, Drumskin, Tympanic, Hard"
+    },
+    {
+        "chineseName": "牢脉",
+        "id": 47,
+        "name": "Lao Mai",
+        "features": "Firm, Confined"
+    },
+    {
+        "chineseName": "濡脉",
+        "id": 48,
+        "name": "Ru Mai",
+        "features": "Soft or Soggy"
+    },
+    {
+        "chineseName": "弱脉",
+        "id": 49,
+        "name": "Ruo Mai",
+        "features": "Weak"
+    },
+    {
+        "chineseName": "散脉",
+        "id": 50,
+        "name": "San Mai",
+        "features": "Scattered"
+    },
+    {
+        "chineseName": "细脉",
+        "id": 51,
+        "name": "Xi Mai",
+        "features": "Thready, Thin"
+    },
+    {
+        "chineseName": "伏脉",
+        "id": 52,
+        "name": "Fu Mai",
+        "features": "Hidden"
+    },
+    {
+        "chineseName": "动脉",
+        "id": 53,
+        "name": "Dong Mai",
+        "features": "Moving, Throbbing, Stirring"
+    },
+    {
+        "chineseName": "促脉",
+        "id": 54,
+        "name": "Cu Mai",
+        "features": "Rapid-Irregular, Skipping, Abrupt"
+    },
+    {
+        "chineseName": "结脉",
+        "id": 55,
+        "name": "Jie Mai",
+        "features": "Knotted, Bound"
+    },
+    {
+        "chineseName": "代脉",
+        "id": 56,
+        "name": "Dai Mai",
+        "features": "Regularly Intermittent"
+    },
+    {
+        "chineseName": "紧脉",
+        "id": 57,
+        "name": "Jin Mia",
+        "features": "Tight, Tense"
+    },
+    {
+        "chineseName": "急脉",
+        "id": 58,
+        "name": "Ji Mai",
+        "features": "Racing, Swift, Hurried"
+    },
+    {
+        "chineseName": "大脉",
+        "id": 59,
+        "name": "Da Mai",
+        "features": "Large, Big"
+    }
+]
