@@ -2,6 +2,7 @@ const express = require("express");
 const http = require("http");
 const mockPiezoData = require("../mockData/piezoData.json");
 const mockEcgData = require("../mockData/ecgData.json");
+const mockDiagnoses = require("../mockData/diagnoses.json");
 const mockPulseTypeData = require("../mockData/pulse-types.json");
 const mockHandPositionData = require("../mockData/hand-position.json");
 const { Server: WebSocketServer } = require("ws");
@@ -33,6 +34,24 @@ mockPiezoElectricSensorApp.get("/diagnosis/:id", (req, res) => {
   };
 
   res.send(diagnosisObject);
+});
+
+let currid = Math.max(...mockDiagnoses.map((diagnosis) => diagnosis.id));
+let minid = Math.min(...mockDiagnoses.map((diagnosis) => diagnosis.id));
+
+mockPiezoElectricSensorApp.get("/diagnosis", (req, res) => {
+  while (
+    mockDiagnoses.filter((diagnosis) => diagnosis.id == currid).length < 0
+  ) {
+    if (currid == 0) {
+      return [];
+    }
+    currid -= 1;
+    console.log(currid);
+  }
+
+  res.send(mockDiagnoses.filter((diagnosis) => diagnosis.id == currid)[0]);
+  currid --;
 });
 
 const mockPiezoElectricSensorServer = http.createServer(
