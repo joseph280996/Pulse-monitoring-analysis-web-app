@@ -44,6 +44,12 @@ class DiagnosisService implements IDiagnosisService {
 
     return DiagnosisResponseToModelsMapper.map([data]);
   }
+
+
+  // TODO: Implement this function for posting diagnosis data to the piezo service
+  async postAsync(formData: PostDiagnosisFormProps){
+    throw new Error("This feature has not been implemented")
+  }
 }
 
 export default DiagnosisService;
