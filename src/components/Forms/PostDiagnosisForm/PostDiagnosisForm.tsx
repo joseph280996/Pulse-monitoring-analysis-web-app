@@ -2,11 +2,11 @@ import { useFormik } from 'formik';
 import { ReactElement } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { object } from 'yup';
-import piezoelectricService from 'renderer/client/utils/services/piezoelectricService';
+import piezoelectricService from '../../../apis/DiagnosisService';
 import {
   IPostDiagnosisFormContainerProp,
   PostDiagnosisFormProps,
-} from './PostDiagnosisFormTypes';
+} from '../../../common/types/forms/PostDiagnosisFormTypes';
 import fields from './postDiagnosisFieldsValidation';
 import PostDiagnosisFormComponent from './PostDiagnosisFormComponent';
 
