@@ -1,6 +1,7 @@
 import { ReactElement, useMemo } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import useRecord from 'renderer/client/utils/hooks/useRecord';
+// TODO: Fix the import
+import useRecord from '../../hooks/useRecord';
 import useWindowDimensions from 'renderer/client/utils/hooks/useWindowDimensions';
 import recordDataToLineChartDataMapper from 'renderer/client/utils/mapper/recordDataToLineChartDataMapper';
 import LoadingSpinner from 'renderer/client/components/LoadingSpinner';

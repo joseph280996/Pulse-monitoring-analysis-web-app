@@ -1,6 +1,7 @@
+import { PostDiagnosisFormProps } from "../common/types/forms/PostDiagnosisFormTypes";
 import AppConstants from "../constants/AppConstants";
 import Diagnosis from "../models/Diagnosis";
-import HttpClient from "../utils/HttpClient";
+import HttpClient from "../common/HttpClient";
 import { IDiagnosisService } from "./interfaces/IDiagnosisService";
 import { IDiagnosisQueryKey } from "./interfaces/queryKeys/IDiagnosisQueryKeys";
 import DiagnosisResponseToModelsMapper from "./mappers/DiagnosisResponseToModelsMapper";
@@ -48,6 +49,11 @@ class DiagnosisService implements IDiagnosisService {
 
   // TODO: Implement this function for posting diagnosis data to the piezo service
   async postAsync(formData: PostDiagnosisFormProps){
+    throw new Error("This feature has not been implemented")
+  }
+
+  // TODO: Implement this function for posting to piezo service for exporting data
+  async exportDataAsync(formValues): Promise<number>{
     throw new Error("This feature has not been implemented")
   }
 }

@@ -1,4 +1,4 @@
-import { RequestResultType } from "../types/RequestResultType";
+import { RequestResultType } from "../types/HttpClientTypes";
 
 export interface IHttpClient {
   get(route?: string, params?: any): Promise<RequestResultType>;

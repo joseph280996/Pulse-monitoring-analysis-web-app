@@ -1,14 +1,13 @@
 import moment from 'moment';
 import { useFormik } from 'formik';
 import { object } from 'yup';
-import piezoelectricService from 'renderer/client/utils/services/piezoelectricService';
-import ExportDataService from 'renderer/client/utils/services/exportDataService';
+import DiagnosisService from '../../../apis/DiagnosisService';
 import ExportDataFormComponent from './ExportDataFormComponent';
 import {
   DatePickerOnChangeType,
   DatePickerSelectedRangeType,
   ExportDataFormValuesType,
-} from './ExportDataFormTypes';
+} from '../../../common/types/forms/ExportDataFormTypes';
 import fields from './exportDataFieldsValidation';
 
 const ExportDataForm = () => {
@@ -19,7 +18,7 @@ const ExportDataForm = () => {
         endDate: null,
       },
       onSubmit: async (formValues, { setStatus: setStatusOnSubmit }) => {
-        const statusCode = await ExportDataService.postAsync(formValues);
+        const statusCode = await (new DiagnosisService()).exportDataAsync(formValues);
         if (statusCode === 200) {
           setStatusOnSubmit('Exported');
         }

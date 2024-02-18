@@ -10,14 +10,14 @@ import {
   ResetButton,
   StartButton,
   StopButton,
-} from 'renderer/client/components/Button';
-import LineChart from 'renderer/client/components/Chart/LineChart';
-import Overlay from 'renderer/client/components/Overlay';
-import { PulsePositionSelect } from 'renderer/client/components/Select';
+} from '../../Button';
+import LineChart from '../../Chart/LineChart';
+import Overlay from '../../Overlay';
+import { PulsePositionSelect } from '../../Select';
 import './DiagnosisForm.scss';
 import DiagnosisFormValuesType, {
   IDiagnosisFormProps,
-} from './DiagnosisFormTypes';
+} from '../../../common/types/forms/DiagnosisFormTypes';
 
 interface IDiagnosisFormComponentProps
   extends IDiagnosisFormProps,

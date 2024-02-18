@@ -1,3 +1,3 @@
 export { default } from './DiagnosisForm';
 
-export * from './DiagnosisFormTypes';
+export * as types from './DiagnosisFormTypes';

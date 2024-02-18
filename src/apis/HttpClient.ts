@@ -1,6 +1,6 @@
 import { API_ACTION_CONSTANTS } from "../constants/ApiConstants";
 import { IHttpClient } from "./interfaces/IHttpClient";
-import { RequestResultType } from "./types/RequestResultType";
+import { RequestResultType } from "./types/HttpClientTypes";
 
 class HttpClient implements IHttpClient {
   private link!: string;
